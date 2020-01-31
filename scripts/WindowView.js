@@ -16,15 +16,14 @@ class WindowView {
         this._center = [this._width / 2,this._height /2];
         return  this._center;
     }
-    printData() {
+    printData(number) {
         app.config(function($routeProvider) {
-            $routeProvider
-            .when("/banana", {
-                templateUrl : "/Pages/page1.html"
-            })
-            .when("/tomato", {
-                template : "<h1>Tomato</h1><p>Tomatoes contain around 95% water.</p>"
-            });
+            for (var i = 1; i <= number; i++) {
+                $routeProvider
+                .when("/banana" + i, {
+                    templateUrl : "/Pages/page" + i +".html"
+                });
+            };
         });
     }
 
