@@ -24,6 +24,7 @@ class WindowView {
                     templateUrl : "/Pages/page" + i +".html"
                 });
             };
+            
         });
     }
 

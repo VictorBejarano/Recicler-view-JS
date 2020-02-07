@@ -5,12 +5,11 @@ $(document).ready(function(){
     windowView.setHeigth = $(document).height();
 });
 var app = angular.module("myApp", ["ngRoute"]);
-var number = 2;
-
-windowView.printData(number);
-
+var number = 1;
+windowView.printData(2);
 function prueba(){
-    console.log("funciona")
+
+    number = 2;
     
     
 }
