@@ -3,13 +3,13 @@ body{
     width: 100vw;
     
 }
-#container{
+#containerView{
     background-color: blue;
     box-sizing: border-box;
     height: 100%;
     padding: 1%;
 }
-#containerPage{
+.viewer{
     background-color: blueviolet;
     box-sizing: border-box;
     height: 100%;

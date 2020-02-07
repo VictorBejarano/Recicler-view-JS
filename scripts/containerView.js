@@ -1,4 +1,4 @@
-class containerView {
+class ContainerView {
 /*    constructor(_width,_height) {
         this._width = _width;
         this._height = _height;
@@ -18,15 +18,7 @@ class containerView {
         return  this._center;
     }
     printData(number) {
-        app.config(function($routeProvider) {
-            for (var i = 1; i <= number; i++) {
-                $routeProvider
-                .when("/banana" + i, {
-                    templateUrl : "/Pages/page" + i +".html"
-                });
-            };
-            
-        });
+        console.log("Height: " + this._heigth + " Width: "+ this._width + " Center: " + this.center)
     }
 
 }
