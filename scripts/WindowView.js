@@ -10,6 +10,7 @@ class WindowView {
     }
     set setHeigth (_heigth) {
         this._heigth = _heigth;
+        
     }
     //Getters
     get getCenter(){
