@@ -1,4 +1,4 @@
-var windowView = new WindowView();
+var windowView = new containerView();
 $(document).ready(function(){
     //windowView = new WindowView($(document).width(),$(document).height(),[2,3]);
     $('.menuContainer').load('./Pages/page1.html');

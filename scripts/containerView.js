@@ -1,4 +1,4 @@
-class WindowView {
+class containerView {
 /*    constructor(_width,_height) {
         this._width = _width;
         this._height = _height;
