@@ -1,6 +1,7 @@
 body{
     margin: 0;
     width: 100vw;
+    height: 20vh;
     
 }
 #containerView{
@@ -8,6 +9,10 @@ body{
     box-sizing: border-box;
     height: 100%;
     padding: 1%;
+    display: grid;
+    align-content: start;
+    grid-row-gap: 20px;
+    overflow: auto;
 }
 .viewer{
     background-color: blueviolet;
