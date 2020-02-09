@@ -11,10 +11,16 @@ containerView.printData(2);
 function prueba(){
 
     $(document).ready(function(){
-        for(var i=1;i<=3;i++){
+        for(var i=1;i<=4;i++){
             $('#containerView').append('<div class="viewer" id="viewN' + i + '"></div>');
+
             $('#viewN' + i)
-                .load('./Pages/page' + i + '.html');
+                .load('./Pages/page' + i + '.html', function (response, status, xhr ) {
+                    if (status == "error") {
+                        // console.clear(); 
+                        console.log("Helo")
+                    }
+                });
         }
     });
     
