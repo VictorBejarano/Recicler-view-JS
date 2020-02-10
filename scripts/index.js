@@ -1,13 +1,12 @@
 
 $(document).ready(function(){
     var containerView = new ContainerView("#containerView");
-    containerView.setWidth = $("#containerView").outerWidth();
-    containerView.setHeigth = $("#containerView").outerHeight();
+    containerView.setNumberView = 12;
     containerView.printData(2);
+    containerView.loadView("Pages","page");
     
-
-    console.log()
-    containerView.setNumberView = 12
+    console.log(containerView.getWidth)
+    
     // $("#containerView").position().top
     $('.triangle-right')
         .css({

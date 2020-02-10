@@ -1,6 +1,9 @@
 class ContainerView {
     constructor(idContainer) {
         this.idContainer = idContainer;
+        this._heigth = $(idContainer).outerHeight();
+        this._width = $(idContainer).outerWidth();
+        this._center = [this._width / 2,this._height /2];
     }
     //Setters
     set setWidth (_width) {
@@ -27,8 +30,7 @@ class ContainerView {
         return this.numberView;        
     }
     //Getters
-    get getCenter(){
-        this._center = [this._width / 2,this._height /2];
+    get getCenter(){        
         return  this._center;
     }
     get getCenterAbsolute(){
@@ -38,9 +40,9 @@ class ContainerView {
     printData(number) {
         console.log("Height: " + this._heigth + " Width: "+ this._width + " Center: " + this.center)
     }
-    loadView(idView, folder, root){        
+    loadView(folder, root){        
         for(var i=1;i<=this.numberView;i++){
-            $(idView).append('<div id="viewN' + i + '"></div>');
+            $(this.idContainer).append('<div id="viewN' + i + '"></div>');
             $('#viewN' + i)
                 .load('./' + folder + '/' + root + i + '.html', function (response, status, xhr ) {
                     if (status == "error") {
