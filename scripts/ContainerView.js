@@ -11,6 +11,12 @@ class ContainerView {
     set setHeigth (_heigth) {
         this._heigth = _heigth;        
     }
+    get getWidth () {
+        return this._width;
+    }
+    get getHeigth () {
+        return this._heigth;        
+    }
     set setNumberView (numberView){
         if(numberView > 0){
             this.numberView = numberView;
