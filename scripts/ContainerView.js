@@ -3,7 +3,11 @@ class ContainerView {
         this.idContainer = idContainer;
         this._heigth = $(idContainer).outerHeight();
         this._width = $(idContainer).outerWidth();
-        this._center = [this._width / 2,this._height /2];
+        this._center;
+        this._y = $(idContainer).position().top;
+        this._x = $(idContainer).position().left;
+        this._center = [(this._width / 2),(this._heigth /2)];
+        this._centerPos = [(this._x + this._center[0]),(this._y + this._center[1])];
     }
     //Setters
     set setWidth (_width) {
@@ -11,12 +15,6 @@ class ContainerView {
     }
     set setHeigth (_heigth) {
         this._heigth = _heigth;        
-    }
-    get getWidth () {
-        return this._width;
-    }
-    get getHeigth () {
-        return this._heigth;        
     }
     set setNumberView (numberView){
         if(numberView > 0){
@@ -26,19 +24,25 @@ class ContainerView {
             console.error('Invalid view number');
         }        
     }
+    //Getters
+    get getWidth () {
+        return this._width;
+    }
+    get getHeigth () {
+        return this._heigth;        
+    }
     get getNumberView (){
         return this.numberView;        
     }
-    //Getters
-    get getCenter(){        
+    get getCenter(){  
         return  this._center;
     }
-    get getCenterAbsolute(){
-        this._center = [this._width / 2,this._height /2];
-        return  this._center;
+    get getCenterPosition(){
+        return  this._centerPos;
     }
+    
     printData(number) {
-        console.log("Height: " + this._heigth + " Width: "+ this._width + " Center: " + this.center)
+        console.log("Height: " + this._heigth + " Width: "+ this._width + " Center: " + this._center)
     }
     loadView(folder, root){        
         for(var i=1;i<=this.numberView;i++){

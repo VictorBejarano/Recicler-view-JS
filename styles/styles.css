@@ -24,11 +24,3 @@ body{
     /* height: 100%; */
     padding: 1%;
 }
-.triangle-left {
-
-	width: 0;
-	height: 0;
-	border-top: 2vw solid transparent;
-	border-right: 4vw solid #555;
-	border-bottom: 2vw solid transparent;
-}
