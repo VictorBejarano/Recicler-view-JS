@@ -1,18 +1,19 @@
-var containerView = new ContainerView();
+
 $(document).ready(function(){
-    containerView.setWidth = $("#containerView").width();
-    containerView.setHeigth = $("#containerView").height();
+    var containerView = new ContainerView("#containerView");
+    containerView.setWidth = $("#containerView").outerWidth();
+    containerView.setHeigth = $("#containerView").outerHeight();
     containerView.printData(2);
     
-    var temp = 100 * $("#containerView").height() / $(document).height();
-    console.log(temp)
+
+    console.log()
     containerView.setNumberView = 12
     // $("#containerView").position().top
     $('.triangle-right')
         .css({
             'position':'fixed',
             'left': '2vw',
-            'top': (temp) + 'vh',
+            'top': (containerView.getHeigth + $("#containerView").position().top) + 'px',
             'width': '0',
             'height': '0',
             'border-top': '2vw solid transparent',
@@ -32,18 +33,18 @@ $(document).ready(function(){
             'border-bottom': '2vw solid transparent'
         });        
 });
-var app = angular.module("myApp", ["ngRoute"]);
-var number = 1;
+// var app = angular.module("myApp", ["ngRoute"]);
+// var number = 1;
 
-containerView.printData(2);
-function prueba(){
-    $(document).ready(function(){
-        containerView.loadView('#containerView','Pages','page');
-    });
-}
-function prueba2() {
-    $(document).ready(function(){
-        console.log($("#containerView").position())
-    });
-}
+// containerView.printData(2);
+// function prueba(){
+//     $(document).ready(function(){
+//         containerView.loadView('#containerView','Pages','page');
+//     });
+// }
+// function prueba2() {
+//     $(document).ready(function(){
+//         console.log($("#containerView").position())
+//     });
+// }
 

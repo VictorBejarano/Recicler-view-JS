@@ -1,9 +1,7 @@
 class ContainerView {
-/*    constructor(_width,_height) {
-        this._width = _width;
-        this._height = _height;
-        this._center = [this._width / 2,this._height /2];
-    }*/
+    constructor(idContainer) {
+        this.idContainer = idContainer;
+    }
     //Setters
     set setWidth (_width) {
         this._width = _width;
@@ -30,6 +28,10 @@ class ContainerView {
     }
     //Getters
     get getCenter(){
+        this._center = [this._width / 2,this._height /2];
+        return  this._center;
+    }
+    get getCenterAbsolute(){
         this._center = [this._width / 2,this._height /2];
         return  this._center;
     }
