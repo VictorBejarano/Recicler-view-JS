@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    /* width: 100vw;
+    height: 90vh; */
+    
+}
+#containerView{
+    height: 90vh;
+    background-color: blue;
+    border: 2vw solid red;
+    -webkit-box-shadow: inset 0px 0px 23px 9px rgba(0,0,0,0.65);
+    -moz-box-shadow: inset 0px 0px 23px 9px rgba(0,0,0,0.65);
+    box-shadow: inset 0px 0px 23px 9px rgba(0,0,0,0.65);
+    box-sizing: border-box;
+    padding: 1%;
+    display: grid;
+    align-content: start;
+    grid-row-gap: 20px;
+    /* overflow: auto; */
+}
+.viewer{
+    background-color: blueviolet;
+    box-sizing: border-box;
+    padding: 1%;
+    position: fixed;
+
+}
