@@ -17,8 +17,12 @@ $(document).ready(function(){
             2
         );
     containerView.loadView("Pages","page");
+    
+    $("#buttonP").click(function(){
+        containerView.loadPrevious("Pages","page");
+    });
 
-    $("#buttonn").click(function(){
+    $("#buttonN").click(function(){
         containerView.loadNext("Pages","page");
     });
     
