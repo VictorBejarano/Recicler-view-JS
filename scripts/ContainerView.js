@@ -90,55 +90,21 @@ class ContainerView {
         }        
     }
     loadPrevious(folder, root){
-        // if((this.counter - 1) > 1){
-        //     var i = (this.counter - 1);
-
-        //     var timeAnim = 1000;
-        //     var tempPosition = $('#viewN' + i).position().top;
-        //     $(this.idContainer).prepend('<div id="viewN' + (i - 1) + '"></div>');
-        //     console.log(($(this.idContainer).height() + tempPosition) + 'px');
-            
-        //     // $('#viewN' + i)
-        //     //     .animate({
-        //     //         top: 0 + 'px'
-        //     //     },timeAnim,
-        //     //     function() {
-        //     //         $('#viewN' + i).remove();
-        //     //     });
-
-        //     $('#viewN' + (i - 1))
-        //             .load('./' + folder + '/' + root + (i - 1)+ '.html', function (response, status, xhr ) {
-        //                 if (status == "error") {
-        //                     alert("Exceed the number of views");
-        //                 }
-        //             })
-        //             .attr("class","viewer")
-        //             .css({
-        //                 'height': $(this.idContainer).height() + 'px',
-        //                 'width': $(this.idContainer).width() + 'px',
-        //                 'top' : (tempPosition + $(this.idContainer).height())+ 'px'
-        //             });
-        //     $('#viewN' + i).remove();
-        //             // .animate({
-        //             //     top: 0 + 'px'
-        //             // },timeAnim);
-        //     // this.counter--;
-        // }     
-        if(this.counter <= this.numberView){
-            var i = this.counter;
+        if((this.counter - 1) >= 2){
+            var i = (this.counter - 1);
             var timeAnim = 1000;
-            var tempPosition = $('#viewN' + (i- 1)).position().top;
-            var routeView = $(this.idContainer).innerHeight() + tempPosition
-            $(this.idContainer).append('<div id="viewN' + i + '"></div>');
-            $('#viewN' + (i- 1))
+            var tempPosition = $('#viewN' + i).position().top;
+            var routeView = tempPosition - $(this.idContainer).innerHeight()
+            $(this.idContainer).prepend('<div id="viewN' + (i - 1) + '"></div>');
+            $('#viewN' + i)
                 .animate({
-                    top: (tempPosition - $(this.idContainer).innerHeight()) + 'px'
+                    top: (tempPosition + $(this.idContainer).innerHeight()) + 'px'
                 },timeAnim,
                 function() {
-                    $('#viewN' + (i- 1)).remove();
+                    $('#viewN' + i).remove();
                 });
-            $('#viewN' + i)
-                    .load('./' + folder + '/' + root + i+ '.html', function (response, status, xhr ) {
+            $('#viewN' + (i - 1))
+                    .load('./' + folder + '/' + root + (i - 1) + '.html', function (response, status, xhr ) {
                         if (status == "error") {
                             alert("Exceed the number of views");
                         }
@@ -152,7 +118,7 @@ class ContainerView {
                     .animate({
                         top: tempPosition + 'px'
                     },timeAnim);
-            this.counter++;
+            this.counter--;
         }    
     }
 }
