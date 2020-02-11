@@ -8,6 +8,7 @@ class ContainerView {
         this._x = $(idContainer).position().left;
         this._center = [(this._width / 2),(this._heigth /2)];
         this._centerPos = [(this._x + this._center[0]),(this._y + this._center[1])];
+        this.counter = 1;
     }
     //Setters
     set setWidth (_width) {
@@ -31,9 +32,6 @@ class ContainerView {
     get getHeigth () {
         return this._heigth;        
     }
-    get getNumberView (){
-        return this.numberView;        
-    }
     get getCenter(){  
         return  this._center;
     }
@@ -45,15 +43,52 @@ class ContainerView {
         console.log("Height: " + this._heigth + " Width: "+ this._width + " Center: " + this._center)
     }
     loadView(folder, root){        
-        for(var i=1;i<=this.numberView;i++){
+        $(this.idContainer).append('<div id="viewN' + this.counter + '"></div>');
+        $('#viewN' + this.counter)
+            .load('./' + folder + '/' + root + this.counter + '.html', function (response, status, xhr ) {
+                if (status == "error") {
+                     alert("Exceed the number of views");
+                }
+            })
+            .attr("class","viewer")
+            .css({
+                'height': $(this.idContainer).height() + 'px',
+                'width': $(this.idContainer).width() + 'px'
+            });
+        this.counter++;           
+    }
+    loadNext(folder, root){
+        if(this.counter <= this.numberView){
+            var i = this.counter;
+            var timeAnim = 1000;
+            var tempPosition = $('#viewN' + (i- 1)).position().top;
             $(this.idContainer).append('<div id="viewN' + i + '"></div>');
+            $('#viewN' + (i- 1))
+                .animate({
+                    top: -($('#viewN' + (i - 1)).height()) + 'px'
+                },timeAnim,
+                function() {
+                    $('#viewN' + (i- 1)).remove();
+                });
             $('#viewN' + i)
-                .load('./' + folder + '/' + root + i + '.html', function (response, status, xhr ) {
-                    if (status == "error") {
-                        alert("Exceed the number of views");
-                    }
-                }).attr("class","viewer");       
-        }        
+                    .load('./' + folder + '/' + root + i+ '.html', function (response, status, xhr ) {
+                        if (status == "error") {
+                            alert("Exceed the number of views");
+                        }
+                    })
+                    .attr("class","viewer")
+                    .css({
+                        'height': $(this.idContainer).height() + 'px',
+                        'width': $(this.idContainer).width() + 'px',
+                        'top' : $(this.idContainer).width() + 'px'
+                    })
+                    .animate({
+                        top: tempPosition + 'px'
+                    },timeAnim);
+            this.counter++;
+        }
+ 
+        
     }
 
 }

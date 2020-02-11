@@ -16,11 +16,12 @@ body{
     display: grid;
     align-content: start;
     grid-row-gap: 20px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 .viewer{
     background-color: blueviolet;
     box-sizing: border-box;
-    /* height: 100%; */
     padding: 1%;
+    position: fixed;
+
 }
